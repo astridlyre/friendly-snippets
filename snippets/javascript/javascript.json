@@ -293,7 +293,7 @@
   },
   "generate array of integers starting with 1": {
     "prefix": "gari",
-    "body": "Array.from({ length: ${1:length} }, (v, k) => k + 1)"
+    "body": "Array.from({ length: ${1:length} }, (${2:v}, ${3:i}) => ${4})"
   },
   "generate array of integers starting with 0": {
     "prefix": "gari0",
@@ -373,7 +373,7 @@
   },
   "try/catch": {
     "prefix": "tc",
-    "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n}"
+    "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t${2}\n}${3}"
   },
   "try/finally": {
     "prefix": "tf",
@@ -441,7 +441,7 @@
   },
   "console.log a variable": {
     "prefix": "cv",
-    "body": "console.log('${0}:', ${0})"
+    "body": "console.log('${0}:', ${1})"
   },
   "console.error": {
     "prefix": "ce",
