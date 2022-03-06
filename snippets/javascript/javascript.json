@@ -239,14 +239,6 @@
     "prefix": "some",
     "body": "${1:iterable}.some((${2:item}) => {\n\t${0}\n})"
   },
-  "var statement": {
-    "prefix": "v",
-    "body": "var ${1:name}"
-  },
-  "var assignment": {
-    "prefix": "va",
-    "body": "var ${1:name} = ${2:value}"
-  },
   "let statement": {
     "prefix": "l",
     "body": "let ${1:name}"
@@ -302,6 +294,10 @@
   "generate array of integers starting with 0": {
     "prefix": "gari0",
     "body": "[...Array(${1:length}).keys()]"
+  },
+  "array from": {
+    "prefix": "af",
+    "body": "Array.from(${0}, (${1:value}, i) => ${2})"
   },
   "class": {
     "prefix": "cs",
@@ -412,7 +408,7 @@
     "body": ";(async (${1:arguments}) => {\n\t${0}\n})(${2})"
   },
   "arrow function": {
-    "prefix": "af",
+    "prefix": "f",
     "body": "(${1:arguments}) => ${2:statement}"
   },
   "arrow function with destructuring": {
@@ -423,13 +419,13 @@
     "prefix": "fdr",
     "body": "({${1:arguments}}) => ${1:arguments}"
   },
-  "arrow function with body": {
-    "prefix": "f",
-    "body": "(${1:arguments}) => {\n\t${0}\n}"
-  },
   "arrow function with return": {
     "prefix": "fr",
     "body": "(${1:arguments}) => {\n\treturn ${0}\n}"
+  },
+  "arrow function with event": {
+    "prefix": "fv",
+    "body": "(e) => ${0}"
   },
   "generator function": {
     "prefix": "gf",
@@ -462,10 +458,6 @@
   "constructor": {
     "prefix": "cn",
     "body": "constructor () {\n\t${0}\n}"
-  },
-  "use strict": {
-    "prefix": "uss",
-    "body": "'use strict'"
   },
   "JSON.stringify()": {
     "prefix": "js",
@@ -596,27 +588,6 @@
     ],
     "description": "For Loop"
   },
-  "For-Each Loop": {
-    "prefix": "foreach",
-    "body": [
-      "${1:array}.forEach(${2:element} => {",
-      "\t$0",
-      "});"
-    ],
-    "description": "For-Each Loop"
-  },
-  "For-In Loop": {
-    "prefix": "forin",
-    "body": [
-      "for (const ${1:key} in ${2:object}) {",
-      "\tif (${2:object}.hasOwnProperty(${1:key})) {",
-      "\t\tconst ${3:element} = ${2:object}[${1:key}];",
-      "\t\t$0",
-      "\t}",
-      "}"
-    ],
-    "description": "For-In Loop"
-  },
   "For-Of Loop": {
     "prefix": "forof",
     "body": [
@@ -649,7 +620,7 @@
   "New Statement": {
     "prefix": "new",
     "body": [
-      "const ${1:name} = new ${2:type}(${3:arguments});$0"
+      "const ${1:name} = new ${2:type}(${3:arguments})$0"
     ],
     "description": "New Statement"
   },
