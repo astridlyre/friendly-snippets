@@ -217,27 +217,27 @@
   },
   "map": {
     "prefix": "map",
-    "body": "${1:iterable}.map((${2:item}) => {\n\t${0}\n})"
+    "body": "${1:iterable}.map((${2:item}) => {0})"
   },
   "reduce": {
     "prefix": "reduce",
-    "body": "${1:iterable}.reduce((${2:previous}, ${3:current}) => {\n\t${0}\n}${4:, initial})"
+    "body": "${1:iterable}.reduce((${2:accumulator}, ${3:value}) => ${0},${4:initial})"
   },
   "filter": {
     "prefix": "filter",
-    "body": "${1:iterable}.filter((${2:item}) => {\n\t${0}\n})"
+    "body": "${1:iterable}.filter((${2:item}) => ${2:item} ${0})"
   },
   "find": {
     "prefix": "find",
-    "body": "${1:iterable}.find((${2:item}) => {\n\t${0}\n})"
+    "body": "${1:iterable}.find((${2:item}) => ${2:item} ${0})"
   },
   "every": {
     "prefix": "every",
-    "body": "${1:iterable}.every((${2:item}) => {\n\t${0}\n})"
+    "body": "${1:iterable}.every((${2:item}) => ${2:item} ${0})"
   },
   "some": {
     "prefix": "some",
-    "body": "${1:iterable}.some((${2:item}) => {\n\t${0}\n})"
+    "body": "${1:iterable}.some((${2:item}) => ${2:item} ${0})"
   },
   "let statement": {
     "prefix": "l",
@@ -545,11 +545,11 @@
   },
   "return new object": {
     "prefix": "ro",
-    "body": "return {\n\t${0}\n}"
+    "body": "return {${0}}"
   },
   "return new array": {
     "prefix": "ra",
-    "body": "return [\n\t${0}\n]"
+    "body": "return [${0}]"
   },
   "return promise": {
     "prefix": "rp",
