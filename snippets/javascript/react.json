@@ -1,11 +1,19 @@
 {
+  "import React": {
+    "prefix": "ir",
+    "body": "import * as React from 'react'"
+  },
   "destructuring of props": {
     "prefix": "dp",
-    "body": ["const { ${1:name} } = this.props"]
+    "body": [
+      "const { ${1:name} } = this.props"
+    ]
   },
   "destructuring of state": {
     "prefix": "ds",
-    "body": ["const { ${1:name} } = this.state"]
+    "body": [
+      "const { ${1:name} } = this.state"
+    ]
   },
   "if falsy return null": {
     "prefix": "ifr",
@@ -33,7 +41,7 @@
   },
   "reactFunctionComponent": {
     "prefix": "rfc",
-    "body": "\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${TM_FILENAME_BASE}",
+    "body": "export default function ${TM_FILENAME_BASE}({${1:props}}){\n\treturn (\n\t\t$0\n\t)\n}",
     "description": "Creates a React function component without PropTypes"
   },
   "reactFunctionComponentWithCustomName": {
@@ -298,13 +306,13 @@
   },
   "useState": {
     "prefix": "us",
-    "body": "const [${1:setterName}, set${1:setterName}] = useState(${2:defVal})$0",
+    "body": "const [${1:setterName}, set${1:setterName}] = React.useState(${2:defVal})$0",
     "description": "use state hook"
   },
   "useEffect": {
     "prefix": "ue",
     "body": [
-      "useEffect(() => {",
+      "React.useEffect(() => {",
       "\t$1",
       "}, [${3:dependencies}])$0"
     ],
@@ -313,7 +321,7 @@
   "useEffect with return": {
     "prefix": "uer",
     "body": [
-      "useEffect(() => {",
+      "React.useEffect(() => {",
       "\t$1",
       "\n\treturn () => {",
       "\t\t$2",
@@ -324,18 +332,22 @@
   },
   "useContext": {
     "prefix": "uc",
-    "body": ["const $1 = useContext($2)$0"],
+    "body": [
+      "const $1 = React.useContext($2)$0"
+    ],
     "description": "React useContext() hook"
   },
   "useRef": {
     "prefix": "ur",
-    "body": ["const ${1:elName}El = useRef(null)$0"],
+    "body": [
+      "const ${1:elName}El = React.useRef(null)$0"
+    ],
     "description": "React useContext() hook"
   },
   "useCallback": {
     "prefix": "ucb",
     "body": [
-      "const ${1:memoizedCallback} = useCallback(",
+      "const ${1:memoizedCallback} = React.useCallback(",
       "\t() => {",
       "\t\t${2:doSomething}(${3:a}, ${4:b})",
       "\t},",
@@ -347,11 +359,11 @@
   "useMemo": {
     "prefix": "ume",
     "body": [
-      "const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}])$0"
+      "const ${1:memoizedValue} = React.useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}])$0"
     ],
     "description": "React useMemo() hook"
   },
-	"describeBlock": {
+  "describeBlock": {
     "prefix": "desc",
     "body": [
       "describe('$1', () => {",
