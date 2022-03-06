@@ -499,6 +499,10 @@
     "prefix": "og",
     "body": "Object.getOwnPropertyDescriptor(${1:obj}, '${2:prop}')"
   },
+  "object spread": {
+    "prefix": "os",
+    "body": "{ ...${1:object} }${0}"
+  },
   "ternary": {
     "prefix": "te",
     "body": "${1:cond} ? ${2:true} : ${3:false}"
