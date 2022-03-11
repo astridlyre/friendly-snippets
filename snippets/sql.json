@@ -1,226 +1,330 @@
 {
+  "select word": {
+    "prefix": "s",
+    "body": [
+      "select ${0}"
+    ],
+    "description": "select"
+  },
+  "join with table": {
+    "prefix": "j",
+    "body": [
+      "join ${1:table} as ${2:alias}"
+    ]
+  },
+  "order by": {
+    "prefix": "ob",
+    "body": [
+      "order by ${0}"
+    ]
+  },
+  "group by": {
+    "prefix": "gb",
+    "body": [
+      "group by ${0}"
+    ]
+  },
   "createt": {
     "prefix": "createt",
-    "body": ["CREATE TABLE ${1:tableName} (", "\t${2:attribute(s)}", ");"],
-    "description": "Create regular table"
-  },
-  "createti": {
-    "prefix": "createti",
-    "body": ["CREATE TABLE IF NOT EXISTS ${1:tableName} (",
+    "body": [
+      "create table ${1:tablename} (",
       "\t${2:attribute(s)}",
       ");"
     ],
-    "description": "Create table with conditional"
+    "description": "create regular table"
+  },
+  "createti": {
+    "prefix": "createti",
+    "body": [
+      "create table if not exists ${1:tablename} (",
+      "\t${2:attribute(s)}",
+      ");"
+    ],
+    "description": "create table with conditional"
   },
   "created": {
     "prefix": "created",
-    "body": ["CREATE DATABASE ${1:name};"],
-    "description": "Create regular table"
+    "body": [
+      "create database ${1:name};"
+    ],
+    "description": "create regular table"
   },
   "createdi": {
     "prefix": "createdi",
-    "body": ["CREATE DATABASE IF NOT EXISTS ${1:name};"],
-    "description": "Create table with conditional"
+    "body": [
+      "create database if not exists ${1:name};"
+    ],
+    "description": "create table with conditional"
   },
   "insert": {
     "prefix": "insert",
-    "body": ["INSERT INTO ${1:tableName} (",
-      "\t${2:attribute(s)}", ") VALUES ( ${3:values} )"
+    "body": [
+      "insert into ${1:tablename} (",
+      "\t${2:attribute(s)}",
+      ") values ( ${3:values} )"
     ],
-    "description": "Insert value(s)"
+    "description": "insert value(s)"
   },
   "dropt": {
     "prefix": "dropt",
-    "body": ["DROP TABLE ${1:tableName};"],
-    "description": "Drop table"
+    "body": [
+      "drop table ${1:tablename};"
+    ],
+    "description": "drop table"
   },
   "dropd": {
     "prefix": "dropd",
-    "body": ["DROP DATABASE ${1:dbName};"],
-    "description": "Drop database"
+    "body": [
+      "drop database ${1:dbname};"
+    ],
+    "description": "drop database"
   },
   "dropti": {
     "prefix": "dropti",
-    "body": ["DROP TABLE IF EXISTS ${1:tableName};"],
-    "description": "Drop table with conditional"
+    "body": [
+      "drop table if exists ${1:tablename};"
+    ],
+    "description": "drop table with conditional"
   },
   "dropdi": {
     "prefix": "dropdi",
-    "body": ["DROP DATABASE IF EXISTS ${1:dbName};"],
-    "description": "Drop database with conditional"
+    "body": [
+      "drop database if exists ${1:dbname};"
+    ],
+    "description": "drop database with conditional"
   },
   "showt": {
     "prefix": "showt",
-    "body": ["SHOW TABLES;"],
-    "description": "Show tables"
+    "body": [
+      "show tables;"
+    ],
+    "description": "show tables"
   },
   "showd": {
     "prefix": "showd",
-    "body": ["SHOW DATABASES;"],
-    "description": "Show databases"
+    "body": [
+      "show databases;"
+    ],
+    "description": "show databases"
   },
   "select": {
-    "prefix": "select",
-    "body": ["SELECT ${1:attribute(s)} FROM ${2:tableName};"],
-    "description": "Regular select"
+    "prefix": "s",
+    "body": [
+      "select ${1:attribute(s)} from ${3:tablename} as ${2:alias};"
+    ],
+    "description": "regular select"
   },
   "selectd": {
     "prefix": "selectd",
-    "body": ["SELECT DISTINCT ${1:attribute(s)}", "\tFROM ${2:tableName};"],
-    "description": "Select Distinct"
+    "body": [
+      "select distinct ${1:attribute(s)}",
+      "\tfrom ${2:tablename};"
+    ],
+    "description": "select distinct"
   },
   "selectw": {
     "prefix": "selectw",
-    "body": ["SELECT ${1:attribute(s)}","\tFROM ${2:tableName}",
-      "\tWHERE ${3:condition};"
+    "body": [
+      "select ${1:attribute(s)}",
+      "\tfrom ${2:tablename}",
+      "\twhere ${3:condition};"
     ],
-    "description": "Select with condition"
+    "description": "select with condition"
   },
   "selector": {
     "prefix": "selector",
-    "body": ["SELECT ${1:attribute(s)}","\tFROM ${2:tableName}",
-      "\tORDER BY ${3:attribute(s)} ${4:ASC|DESC};"
+    "body": [
+      "select ${1:attribute(s)}",
+      "\tfrom ${2:tablename}",
+      "\torder by ${3:attribute(s)} ${4:asc|desc};"
     ],
-    "description": "Select with order"
+    "description": "select with order"
   },
   "updatet": {
     "prefix": "updatet",
-    "body": ["UPDATE ${1:tableName}","\tSET ${2:attribute(s)}",
-      "\tWHERE ${3:condition};"
+    "body": [
+      "update ${1:tablename}",
+      "\tset ${2:attribute(s)}",
+      "\twhere ${3:condition};"
     ],
-    "description": "Update table"
+    "description": "update table"
   },
   "delete": {
     "prefix": "delete",
-    "body": ["DELETE FROM ${1:tableName}", "\tWHERE ${3:condition};"],
-    "description": "Delete records"
+    "body": [
+      "delete from ${1:tablename}",
+      "\twhere ${3:condition};"
+    ],
+    "description": "delete records"
   },
   "altert": {
     "prefix": "altert",
-    "body": ["ALTER TABLE ${1:tableName}", "\t ${2:intructions};"],
-    "description": "Alter table"
+    "body": [
+      "alter table ${1:tablename}",
+      "\t ${2:intructions};"
+    ],
+    "description": "alter table"
   },
   "alterad": {
     "prefix": "alterad",
-    "body": ["ALTER TABLE ${1:tableName}", "\tADD COLUMN ${2:col_name};"],
-    "description": "Alter table - Add column"
+    "body": [
+      "alter table ${1:tablename}",
+      "\tadd column ${2:col_name};"
+    ],
+    "description": "alter table - add column"
   },
   "alteraf": {
     "prefix": "alteraf",
-    "body": ["ALTER TABLE ${1:tableName}", "\tADD COLUMN ${2:col_name}",
-      "\tAFTER ${5:col_name};"
+    "body": [
+      "alter table ${1:tablename}",
+      "\tadd column ${2:col_name}",
+      "\tafter ${5:col_name};"
     ],
-    "description": "Alter table - Add column after"
+    "description": "alter table - add column after"
   },
   "alterdb": {
     "prefix": "alterdb",
-    "body": ["ALTER DATABASE ${1:dbName}", "\tCHARACTER SET ${2:charset}",
-      "\tCOLLATE ${3:utf8_unicode_ci};"
+    "body": [
+      "alter database ${1:dbname}",
+      "\tcharacter set ${2:charset}",
+      "\tcollate ${3:utf8_unicode_ci};"
     ],
-    "description": "Alter database"
+    "description": "alter database"
   },
   "ijoin": {
     "prefix": "ijoin",
-    "body": ["SELECT ${1:attribute(s)}", "\tFROM ${2:tableName}",
-      "\tINNER JOIN ${3:tableName2}", "\tON ${4:match};"
+    "body": [
+      "select ${1:attribute(s)}",
+      "\tfrom ${2:tablename}",
+      "\tinner join ${3:tablename2}",
+      "\ton ${4:match};"
     ],
-    "description": "Inner Join"
+    "description": "inner join"
   },
   "rjoin": {
     "prefix": "rjoin",
-    "body": ["SELECT ${1:attribute(s)}", "\tFROM ${2:tableName}",
-      "\tRIGHT JOIN ${3:tableName2}", "\tON ${4:match};"
+    "body": [
+      "select ${1:attribute(s)}",
+      "\tfrom ${2:tablename}",
+      "\tright join ${3:tablename2}",
+      "\ton ${4:match};"
     ],
-    "description": "Right Join"
+    "description": "right join"
   },
   "ljoin": {
     "prefix": "ljoin",
-    "body": ["SELECT ${1:attribute(s)}", "\tFROM ${2:tableName}",
-      "\tLEFT JOIN ${3:tableName2}", "\tON ${4:match};"
+    "body": [
+      "select ${1:attribute(s)}",
+      "\tfrom ${2:tablename}",
+      "\tleft join ${3:tablename2}",
+      "\ton ${4:match};"
     ],
-    "description": "Left Join"
+    "description": "left join"
   },
   "fjoin": {
     "prefix": "fjoin",
-    "body": ["SELECT ${1:attribute(s)}", "\tFROM ${2:tableName}",
-      "\tFULL JOIN OUTER ${3:tableName2}", "\tON ${4:match}",
-      "\tWHERE ${5:condition};"
+    "body": [
+      "select ${1:attribute(s)}",
+      "\tfrom ${2:tablename}",
+      "\tfull join outer ${3:tablename2}",
+      "\ton ${4:match}",
+      "\twhere ${5:condition};"
     ],
-    "description": "Full Join"
+    "description": "full join"
   },
   "union": {
     "prefix": "union",
-    "body": ["SELECT ${1:attribute(s)} FROM ${2:tableName}", "UNION",
-      "SELECT ${3:attribute(s)} FROM ${4:tableName2};"
+    "body": [
+      "select ${1:attribute(s)} from ${2:tablename}",
+      "union",
+      "select ${3:attribute(s)} from ${4:tablename2};"
     ],
-    "description": "Regular union"
+    "description": "regular union"
   },
   "uniona": {
     "prefix": "uniona",
-    "body": ["SELECT ${1:attribute(s)} FROM ${2:tableName}", "UNION ALL",
-      "SELECT ${3:attribute(s)} FROM ${4:tableName2};"
+    "body": [
+      "select ${1:attribute(s)} from ${2:tablename}",
+      "union all",
+      "select ${3:attribute(s)} from ${4:tablename2};"
     ],
-    "description": "All union"
+    "description": "all union"
   },
   "groupb": {
     "prefix": "groupb",
-    "body": ["SELECT ${1:attribute(s)}", "\tFROM ${2:tableName}",
-      "\tORDER BY ${3:attribute(s)};"
+    "body": [
+      "select ${1:attribute(s)}",
+      "\tfrom ${2:tablename}",
+      "\torder by ${3:attribute(s)};"
     ],
-    "description": "Group by"
+    "description": "group by"
   },
   "bakupd": {
     "prefix": "bakupd",
-    "body": ["BACKUP DATABASE ${1:dbName}", "\tTO DISK ${2:filepath};"],
-    "description": "Backup database"
+    "body": [
+      "backup database ${1:dbname}",
+      "\tto disk ${2:filepath};"
+    ],
+    "description": "backup database"
   },
   "bakupdw": {
     "prefix": "bakupdw",
-    "body": ["BACKUP DATABASE ${1:dbName}", "\tTO DISK ${2:filepath}",
-      "\tWITH ${3:DIFERENTIAL};"
+    "body": [
+      "backup database ${1:dbname}",
+      "\tto disk ${2:filepath}",
+      "\twith ${3:diferential};"
     ],
-    "description": "Diferencial backup database"
+    "description": "diferencial backup database"
   },
   "primaryk": {
     "prefix": "primaryk",
-    "body": ["PRIMARY KEY(${1:attribute})"],
-    "description": "Primary Key"
+    "body": [
+      "primary key(${1:attribute})"
+    ],
+    "description": "primary key"
   },
   "primarykc": {
     "prefix": "primarykc",
-    "body": ["CONSTRAINT ${1:attribute} PRIMARY KEY(${2:attribute(s)})"],
-    "description": "Constraint rimary Key"
+    "body": [
+      "constraint ${1:attribute} primary key(${2:attribute(s)})"
+    ],
+    "description": "constraint rimary key"
   },
   "foreingk": {
     "prefix": "foreingk",
-    "body": ["FOREIGN KEY(${1:attribute}) REFERENCES ${2:tableName}(${3:attribute})"],
-    "description": "Foreing Key"
+    "body": [
+      "foreign key(${1:attribute}) references ${2:tablename}(${3:attribute})"
+    ],
+    "description": "foreing key"
   },
   "foreingkc": {
     "prefix": "foreingkc",
-    "body": ["CONSTRAINT ${1:attribute} FOREING KEY (${2:attribute(s)})",
-      "\tREFERENCES ${3:tableName}(${4:attribute})"
+    "body": [
+      "constraint ${1:attribute} foreing key (${2:attribute(s)})",
+      "\treferences ${3:tablename}(${4:attribute})"
     ],
-    "description": "Constraint foreing Key"
+    "description": "constraint foreing key"
   },
   "check": {
     "prefix": "check",
-    "body": ["CHECK ( ${1:condition} )"],
-    "description": "Check"
+    "body": [
+      "check ( ${1:condition} )"
+    ],
+    "description": "check"
   },
   "creteuser": {
     "prefix": "createuser",
-    "body": "CREATE USER '${1:username}'@'${2:localhost}' IDENTIFIED BY '${3:password}';",
-    "description": "Create User"
+    "body": "create user '${1:username}'@'${2:localhost}' identified by '${3:password}';",
+    "description": "create user"
   },
   "deleteuser": {
     "prefix": "deleteuser",
-    "body": "DELETE FROM mysql.user WHERE user = '${1:userName}';",
-    "description": "Delete user"
+    "body": "delete from mysql.user where user = '${1:username}';",
+    "description": "delete user"
   },
-  "grantuser":{
+  "grantuser": {
     "prefix": "grantuser",
-    "body": "GRANT ALL PRIVILEGES ON ${1:db}.${2:tb} TO '${3:user_name}'@'${4:localhost}';",
-    "description": "Grant privileges"
+    "body": "grant all privileges on ${1:db}.${2:tb} to '${3:user_name}'@'${4:localhost}';",
+    "description": "grant privileges"
   }
 }
