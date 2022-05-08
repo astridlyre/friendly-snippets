@@ -217,7 +217,7 @@
   },
   "map": {
     "prefix": "map",
-    "body": "${1:iterable}.map((${2:item}) => {0})"
+    "body": "${1:iterable}.map((${2:item}) => ${0:statement})"
   },
   "reduce": {
     "prefix": "reduce",
