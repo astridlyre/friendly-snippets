@@ -300,7 +300,7 @@
     "body": "class ${1:name} {\n\tconstructor (${2:arguments}) {\n\t\t${0}\n\t}\n}"
   },
   "export class": {
-    "prefix": "ec",
+    "prefix": "ecs",
     "body": "export default class ${1:name} {\n\tconstructor (${2:arguments}) {\n\t\t${0}\n\t}\n}"
   },
   "class extends": {
