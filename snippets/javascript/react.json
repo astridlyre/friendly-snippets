@@ -311,7 +311,7 @@
   },
   "useState": {
     "prefix": "us",
-    "body": "const [${1:first}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:second})",
+    "body": "const [${1:first}, set${1/(.*)/${1:/capitalize}/}] = React.useState(${2:second})",
     "description": "use state hook"
   },
   "useEffect": {
