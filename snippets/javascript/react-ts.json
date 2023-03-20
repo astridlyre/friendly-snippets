@@ -15,30 +15,20 @@
       "const { ${1:name} } = this.state"
     ]
   },
-  "reactClassCompoment": {
-    "prefix": "rcc",
-    "body": "import React, { Component } from 'react'\n\nclass ${TM_FILENAME_BASE} extends Component {\n\trender () {\n\t\treturn (\n\t\t\t<div>\n\t\t\t\t$0\n\t\t\t</div>\n\t\t)\n\t}\n}\n\nexport default ${1}",
-    "description": "Creates a React component class"
-  },
-  "reactJustClassCompoment": {
-    "prefix": "rcjc",
-    "body": "class ${TM_FILENAME_BASE} extends Component {\n\trender () {\n\t\treturn (\n\t\t\t<div>\n\t\t\t\t$0\n\t\t\t</div>\n\t\t)\n\t}\n}\n",
-    "description": "Creates a React component class"
-  },
-  "reactClassCompomentPropTypes": {
-    "prefix": "rccp",
-    "body": "import React, { Component, PropTypes } from 'react'\n\nclass ${TM_FILENAME_BASE} extends Component {\n\trender () {\n\t\treturn (\n\t\t\t<div>\n\t\t\t\t$0\n\t\t\t</div>\n\t\t)\n\t}\n}\n\n${1}.propTypes = {\n\n}\n\nexport default ${1}",
-    "description": "Creates a React component class with PropTypes"
-  },
-  "reactClassCompomentWithMethods": {
-    "prefix": "rcfc",
-    "body": "import React, { Component, PropTypes } from 'react'\n\nclass ${TM_FILENAME_BASE} extends Component {\n\tconstructor(props) {\n\t\tsuper(props)\n\n\t}\n\n\tcomponentWillMount () {\n\n\t}\n\n\tcomponentDidMount () {\n\n\t}\n\n\tcomponentWillReceiveProps (nextProps) {\n\n\t}\n\n\tshouldComponentUpdate (nextProps, nextState) {\n\n\t}\n\n\tcomponentWillUpdate (nextProps, nextState) {\n\n\t}\n\n\tcomponentDidUpdate (prevProps, prevState) {\n\n\t}\n\n\tcomponentWillUnmount () {\n\n\t}\n\n\trender () {\n\t\treturn (\n\t\t\t<div>\n\n\t\t\t</div>\n\t\t)\n\t}\n}\n\n${1}.propTypes = {\n\n}\n\nexport default ${1}",
-    "description": "Creates a React component class with PropTypes and all lifecycle methods"
-  },
-  "reactFunctionComponent": {
+  "reactFunctionalExportComponent": {
     "prefix": "rfc",
-    "body": "import React from 'react'\n\nexport const ${TM_FILENAME_BASE} = (props : {}) => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}",
-    "description": "Creates a React functional component without PropTypes"
+    "body": [
+      "import * as React from 'react'",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = React.memo(function ${1:${TM_FILENAME_BASE}}(props: {}) {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "});",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Creates a React Functional Component with ES7 module system"
   },
   "reactFunctionComponentWithEmotion": {
     "prefix": "rfce",
@@ -292,29 +282,29 @@
   },
   "useState": {
     "prefix": "us",
-    "body": "const [${1:val}, set${2:setterName}] = useState(${3:defVal})",
+    "body": "const [${1:first}, set${1/(.*)/${1:/capitalize}/}] = React.useState(${2:second})",
     "description": "use state hook"
   },
   "useEffect": {
     "prefix": "ue",
     "body": [
-      "useEffect(() => {",
+      "React.useEffect(() => {",
       "\t$1",
       "}, [${3:dependencies}])$0"
     ],
     "description": "React useEffect() hook"
   },
-  "useEffect with cleanup": {
-    "prefix": "uec",
+  "useEffect with return": {
+    "prefix": "uer",
     "body": [
-      "useEffect(() => {",
+      "React.useEffect(() => {",
       "\t$1",
       "\n\treturn () => {",
       "\t\t$2",
       "\t}",
       "}, [${3:dependencies}])$0"
     ],
-    "description": "React useEffect() hook with a cleanup function"
+    "description": "React useEffect() hook with return statement"
   },
   "createContext": {
     "prefix": "cc",
@@ -328,21 +318,21 @@
   "useContext": {
     "prefix": "uc",
     "body": [
-      "const $1 = useContext($2)$0"
+      "const $1 = React.useContext($2)$0"
     ],
     "description": "React useContext() hook"
   },
   "useRef": {
     "prefix": "ur",
     "body": [
-      "const ${1:elName}El = useRef(null)$0"
+      "const ${1:elName}El = React.useRef(null)$0"
     ],
     "description": "React useContext() hook"
   },
   "useCallback": {
     "prefix": "ucb",
     "body": [
-      "const ${1:memoizedCallback} = useCallback(",
+      "const ${1:memoizedCallback} = React.useCallback(",
       "\t() => {",
       "\t\t${2:doSomething}(${3:a}, ${4:b})",
       "\t},",
@@ -354,7 +344,7 @@
   "useMemo": {
     "prefix": "ume",
     "body": [
-      "const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}])$0"
+      "const ${1:memoizedValue} = React.useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}])$0"
     ],
     "description": "React useMemo() hook"
   },
